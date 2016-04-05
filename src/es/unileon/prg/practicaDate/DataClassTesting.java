@@ -80,12 +80,25 @@ public class DataClassTesting{
 	System.out.println(myDate.getMonthsWithSameDaysNumber());
 	//Funciona perfectamente
 	*/
+
 	/*
 	//Voy a comprobar que funciona el metodo countDaysSinceBeggining()
 	//Date myDate = new Date(15, 01, 2016);
 	//System.out.println(myDate.countDaysSinceBeggining()); //salida -> 15
 	Date myDate = new Date(15, 03, 2016);
 	System.out.println(myDate.countDaysSinceBeggining()); //salida - > 74 = 15+28+31 Es correcto
+	//Funciona perfectamente
+	*/
+
+	/*
+	//Voy a probar el método random number attemps con while
+	Date myDate = new Date(5,5,2015);
+	System.out.println("El numero de intentos ha sido: " + myDate.randomAttemptsWhile() + " con while");
+	//Funciona perfectamente
+	
+	//Voy a probar el método random number attemps con do-while
+	Date myDate15 = new Date(5,5,2015);
+	System.out.println("El numero de intentos ha sido: " + myDate.randomAttemptsDoWhile() + " con do-while");
 	//Funciona perfectamente
 	*/
 

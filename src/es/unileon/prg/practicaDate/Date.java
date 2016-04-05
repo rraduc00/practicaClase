@@ -235,6 +235,39 @@ public class Date{
 		return totalDays;
 	}
 
+	public int randomAttemptsWhile(){
+		int dayGuess = 0; 
+		int monthGuess = 0;
+		int attemptsNumber = 0;
+		while(dayGuess != this.day || monthGuess != this.month){
+			dayGuess = randomWithinRange(1, this.day);
+			//System.out.println("dayGuess ha salido: " + dayGuess);
+			monthGuess = randomWithinRange(1, this.month);
+			//System.out.println("monthGuess ha salido: " + monthGuess);
+			attemptsNumber++;
+		}
+		return attemptsNumber;
+	}
+
+	public int randomAttemptsDoWhile(){
+		int dayGuess = 0; 
+		int monthGuess = 0;
+		int attemptsNumber = 0;
+		do{
+			dayGuess = randomWithinRange(1, this.day);
+			//System.out.println("dayGuess ha salido: " + dayGuess);
+			monthGuess = randomWithinRange(1, this.month);
+			//System.out.println("monthGuess ha salido: " + monthGuess);
+			attemptsNumber++;
+		}while(dayGuess != this.day || monthGuess != this.month);
+		return attemptsNumber;
+	}
+
+	public int randomWithinRange(int min, int max){
+		int range = (max - min) + 1;     
+   		return (int)(java.lang.Math.random() * range) + min;
+	}
+
 	public String toString(){
 		return "The date is: " + day + " of " + month + " of year " + year;
 	}
