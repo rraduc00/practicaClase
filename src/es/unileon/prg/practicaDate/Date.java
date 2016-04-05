@@ -176,8 +176,64 @@ public class Date{
 	}
 
 
-	/////// For a date, print all dates until the end of the month.  ??????????
+	public String getDaysUntilMonthsEnd(){
+		StringBuffer daysLeft = new StringBuffer("The days until the months end are: ");
+		int diaAuxiliar = this.day+1;
+		while(parser.checkIfDayIsRight(diaAuxiliar, this.month)){
+			daysLeft.append(diaAuxiliar + " ");
+			diaAuxiliar++;
+		}
+		return daysLeft.toString();
+	}
 	
+	public String getMonthsWithSameDaysNumber(){
+		StringBuffer months = new StringBuffer("The months with same days number as "+getMonthName()+" are: ");
+		switch(month){
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				months.append("January, March, May, July, August, October y December.");
+			break;
+
+			case 2:
+				months.append("February is unique.");
+			break;
+
+			case 4: case 6: case 9: case 11:
+				months.append("April, June, September y November.");
+			break;
+		}
+		return months.toString();
+	}
+
+	public int countDaysSinceBeggining(){
+		int days = this.day;
+		Date auxiliarDate = new Date(this.day, this.month - 1, this.year);
+		if(auxiliarDate.getMonth() != 1){
+			for(int i = auxiliarDate.getMonth(); i > 0; ){
+				days += auxiliarDate.getMonthTotalDays();
+				i--;
+				auxiliarDate.setMonth(i);
+			}
+		}
+		return days;
+	}
+
+	public int getMonthTotalDays(){
+		int totalDays = 0;
+		switch(month){
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				totalDays = 31;
+			break;
+
+			case 2:
+				totalDays = 28;
+			break;
+
+			case 4: case 6: case 9: case 11:
+				totalDays = 30;
+			break;
+		}
+		return totalDays;
+	}
 
 	public String toString(){
 		return "The date is: " + day + " of " + month + " of year " + year;

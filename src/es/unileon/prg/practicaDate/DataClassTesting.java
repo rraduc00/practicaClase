@@ -66,5 +66,32 @@ public class DataClassTesting{
 	System.out.println(myDate.getMonthSeason());
 	//Funciona correctamente
 	*/
+
+	/*
+	//Voy a probar que me imprime los días restantes hasta que acaba el mes con una fecha dada
+	Date myDate = new Date(10,2,2016);
+	System.out.println(myDate.getDaysUntilMonthsEnd());
+	//Funciona perfectamente
+	*/
+
+	/*
+	//Voy a probar el método getMonthsWithSameDaysNumber()
+	Date myDate = new Date(10,1,2016);
+	System.out.println(myDate.getMonthsWithSameDaysNumber());
+	//Funciona perfectamente
+	*/
+	/*
+	//Voy a comprobar que funciona el metodo countDaysSinceBeggining()
+	//Date myDate = new Date(15, 01, 2016);
+	//System.out.println(myDate.countDaysSinceBeggining()); //salida -> 15
+	Date myDate = new Date(15, 03, 2016);
+	System.out.println(myDate.countDaysSinceBeggining()); //salida - > 74 = 15+28+31 Es correcto
+	//Funciona perfectamente
+	*/
+
+	//Voy a probar que el método toString funciona y es invocado por defecto al imprimir el objeto
+	Date myDate2 = new Date(10,1,2016);
+	System.out.println(myDate);
+	//Funciona perfectamente
     }
 }
