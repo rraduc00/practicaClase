@@ -16,19 +16,67 @@ public class DataValidator{
 	}
 	*/
 
-	public boolean checkDataFormat(int day, int month, int year){
-		return (day > 0 && day < 32 && month > 0 && month < 13 && year > 0 && year < 2016);
+	public void checkDataFormat(int day, int month, int year) throws DateErrorException{
+		StringBuffer errorMessage = new StringBuffer();
+		if(day < 1) {
+				errorMessage.append("You are not allowed to introduce negative days or zero. ");
+		}
+		if(day > 31) {
+				errorMessage.append("You are not allowed to introduce bigger day than 31. ");
+		}
+		if(month < 1) {
+				errorMessage.append("You are not allowed to introduce months lower than 1. ");
+		}
+		if(month > 12) {
+				errorMessage.append("You are not allowed to introduce months bigger than 12. ");
+		}
+		if(year < 0) {
+				errorMessage.append("You are not allowed to introduce negative years. ");
+		}
+		if(year > 2020) {
+				errorMessage.append("You are not allowed to introduce very distant years. ");
+		}
+		if(errorMessage.length() != 0){
+			throw new DateErrorException(errorMessage.toString());
+		}
 	}
 
-	public boolean checkDayFormat(int day){
-		return (day > 0 && day < 32);
+	public void checkDayFormat(int day) throws DateErrorException{
+		StringBuffer errorMessage = new StringBuffer();
+		if(day < 1) {
+				errorMessage.append("You are not allowed to introduce negative days or zero. ");
+		}
+		if(day > 31) {
+				errorMessage.append("You are not allowed to introduce bigger day than 31. ");
+		}
+		if(errorMessage.length() != 0){
+			throw new DateErrorException(errorMessage.toString());
+		}
 	}
 
-	public boolean checkMonthFormat(int month){
-		return (month > 0 && month < 13);
+	public void checkMonthFormat(int month) throws DateErrorException{
+		StringBuffer errorMessage = new StringBuffer();
+		if(month < 1) {
+				errorMessage.append("You are not allowed to introduce months lower than 1. ");
+		}
+		if(month > 12) {
+				errorMessage.append("You are not allowed to introduce months bigger than 12. ");
+		}
+		if(errorMessage.length() != 0){
+			throw new DateErrorException(errorMessage.toString());
+		}
 	}
 
-	public boolean checkYearFormat(int year){
-		return (year > 0 && year < 2016);
+	public void checkYearFormat(int year) throws DateErrorException{
+		StringBuffer errorMessage = new StringBuffer();
+		if(year < 0) {
+				errorMessage.append("You are not allowed to introduce negative years. ");
+		}
+		if(year > 2020) {
+				errorMessage.append("You are not allowed to introduce very distant years. ");
+		}
+		if(errorMessage.length() != 0){
+			throw new DateErrorException(errorMessage.toString());
+		}
 	}
 }

@@ -9,16 +9,19 @@ package es.unileon.prg.practicaDate;
 public class DataClassTesting{
 	public static void main(String[] args) throws DateErrorException {
 
-	//Esto da error, las excepciones funcionan bien. Date wrongFormatDate = new Date(0,1,2000);
+	//Esto da error, las excepciones funcionan bien. 
+		//Date wrongFormatDate = new Date(0,1,2000); Funciona
 		
-	/*//Voy a comprobar los setters. Tanto su funcionamiento como las excpeciones
+	/*
+	//Voy a comprobar los setters. Tanto su funcionamiento como las excpeciones
 	Date myDate = new Date(5,5,2015);
-	myDate.setYear(5,5,0);
-	myDate.setYear(0);
+	myDate.setDate(5,5,-5);
+	myDate.setYear(0); // Este es el único correcto
 	myDate.setMonth(0);
 	myDate.setDay(0);
-	//Funcionan perfectamente	
+	//Funcionan perfectamente. Sacan todos los errores.	
 	*/
+
 	/*
 	//Voy a crear dos fechas distintas para comprobar los métodos. Según la salida que impriman
 	//sabré si funcionan bien o no.
@@ -50,5 +53,6 @@ public class DataClassTesting{
 	//Funcionan perfectamente
 	*/
 
+	
     }
 }

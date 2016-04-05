@@ -7,7 +7,9 @@ package es.unileon.prg.practicaDate;
  */
 
 public class Date{
-	int day, month, year;
+	private int day;
+	private int month;
+	private int year;
 	DataValidator parser = new DataValidator();
 	
 	public Date(){
@@ -16,13 +18,20 @@ public class Date{
 		this.year = 2016;
 	}
 
+	public Date(Date obj){
+		this.day = obj.getDay();
+		this.month = obj.getMonth();
+		this.year = obj.getYear();
+	}
+
 	public Date(int day, int month, int year) throws DateErrorException{
-		if(parser.checkDataFormat(day, month, year)){
+		try{
+			parser.checkDataFormat(day, month, year);
 			this.day = day;
 			this.month = month;
 			this.year = year;
-		} else {
-			throw new DateErrorException("Invalid date format! Fatal error.");
+		} catch (DateErrorException errorMsg) {
+			System.err.println(errorMsg);
 		}
 	}
 
@@ -39,36 +48,40 @@ public class Date{
 	}
 
 	public void setDay(int day) throws DateErrorException{
-		if(parser.checkDayFormat(day)){
+		try{
+			parser.checkDayFormat(day);
 			this.day = day;
-		} else {
-			throw new DateErrorException("Invalid day format! Fatal error.");
+		} catch (DateErrorException errorMsg) {
+			System.err.println(errorMsg);
 		}
 	}
 
 	public void setMonth(int month) throws DateErrorException{
-		if(parser.checkMonthFormat(month)){
+		try{
+			parser.checkMonthFormat(month);
 			this.month = month;
-		} else {
-			throw new DateErrorException("Invalid month format! Fatal error.");
+		} catch (DateErrorException errorMsg) {
+			System.err.println(errorMsg);
 		}
 	}
 
 	public void setYear(int year) throws DateErrorException{
-		if(parser.checkYearFormat(year)){
+		try{
+			parser.checkYearFormat(year);
 			this.year = year;
-		} else {
-			throw new DateErrorException("Invalid year format! Fatal error.");
+		} catch (DateErrorException errorMsg) {
+			System.err.println(errorMsg);
 		}
 	}
 
 	public void setDate(int day, int month, int year) throws DateErrorException{
-		if(parser.checkDataFormat(day, month, year)){
+		try{
+			parser.checkDataFormat(day, month, year);
 			this.day = day;
 			this.month = month;
 			this.year = year;
-		} else {
-			throw new DateErrorException("Invalid date format! Fatal error.");
+		} catch (DateErrorException errorMsg) {
+			System.err.println(errorMsg);
 		}
 	}
 
@@ -93,89 +106,47 @@ public class Date{
 		String monthName = "";
 		switch(this.month){
 			case 1:
-				month = "January";
+				monthName = "January";
 			break;
 			case 2:
-				month = "February";
+				monthName = "February";
 			break;
 			case 3:
-				month = "March";
+				monthName = "March";
 			break;
 			case 4:
-				month = "April";
+				monthName = "April";
 			break;
 			case 5:
-				month = "May";
+				monthName = "May";
 			break;
 			case 6:
-				month = "June";
+				monthName = "June";
 			break;
 			case 7:
-				month = "July";
+				monthName = "July";
 			break;
 			case 8:
-				month = "August";
+				monthName = "August";
 			break;
 			case 9:
-				month = "September";
+				monthName = "September";
 			break;
 			case 10:
-				month = "October";
+				monthName = "October";
 			break;
 			case 11:
-				month = "November";
+				monthName = "November";
 			break;
 			case 12:
-				month = "December";
+				monthName = "December";
 			break;
-		return month;
+		
 		}
+		return monthName;
 	}
 
 	//////////// A method that checks if the day of the month is right  ??????
-
-	public String getSpecificMonthName(int month){
-		String monthName = "";
-		switch(month){
-			case 1:
-				month = "January";
-			break;
-			case 2:
-				month = "February";
-			break;
-			case 3:
-				month = "March";
-			break;
-			case 4:
-				month = "April";
-			break;
-			case 5:
-				month = "May";
-			break;
-			case 6:
-				month = "June";
-			break;
-			case 7:
-				month = "July";
-			break;
-			case 8:
-				month = "August";
-			break;
-			case 9:
-				month = "September";
-			break;
-			case 10:
-				month = "October";
-			break;
-			case 11:
-				month = "November";
-			break;
-			case 12:
-				month = "December";
-			break;
-		return month;
-		}
-	}
 
 	public String getMonthSeason(){
 		String monthSeason ="";
@@ -193,12 +164,19 @@ public class Date{
 				monthSeason = "Winter";
 			break;
 		}
+		return monthSeason;
 	}
 
-	public String getMonthsLeft(){
-		Stringbuffer monthsLeft = new StringBuffer();
-		for(int i = month; i < 13; i++ ){
-			monthsLeft.append(getSpecificMonthName(i));
+	public String getMonthsLeft() throws DateErrorException{
+		Date aux = new Date(this);
+		StringBuffer monthsLeft = new StringBuffer();
+		for(int i = month + 1 ; i < 13; i++ ){
+			try{
+				aux.setMonth(i);
+			} catch (DateErrorException errorMsg) {
+				System.err.println(errorMsg);
+			}
+				monthsLeft.append(aux.getMonthName() + " ");
 		}
 		return monthsLeft.toString();
 	}
