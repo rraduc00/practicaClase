@@ -17,14 +17,14 @@
       <echo message="Compiling...done"/>
     </target>
 
-    <!--<target name="run" depends="compile">
-      <java classname="es.unileon.prg.practicaDate">
+    <target name="run" depends="compile">
+      <java classname="es.unileon.prg.practicaDate.DataClassTesting">
          <classpath>
               <pathelement path="${classes}"/>
          </classpath>
       </java>
-   </target>-->
+   </target>
 
-    <target name="todo" depends="compile"/>
+    <target name="todo" depends="run"/>
 
 </project>
