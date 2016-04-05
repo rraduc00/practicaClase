@@ -34,10 +34,42 @@ public class Date{
 		return this.month;
 	}
 
-	public getYear(){
+	public int getYear(){
 		return this.year;
 	}
 
+	public void setDay(int day) throws DateErrorException{
+		if(parser.checkDayFormat(day)){
+			this.day = day;
+		} else {
+			throw new DateErrorException("Invalid day format! Fatal error.");
+		}
+	}
 
+	public void setMonth(int month) throws DateErrorException{
+		if(parser.checkMonthFormat(month)){
+			this.month = month;
+		} else {
+			throw new DateErrorException("Invalid month format! Fatal error.");
+		}
+	}
+
+	public void setYear(int year) throws DateErrorException{
+		if(parser.checkYearFormat(year)){
+			this.year = year;
+		} else {
+			throw new DateErrorException("Invalid year format! Fatal error.");
+		}
+	}
+
+	public void setDate(int day, int month, int year) throws DateErrorException{
+		if(parser.checkDataFormat(day, month, year)){
+			this.day = day;
+			this.month = month;
+			this.year = year;
+		} else {
+			throw new DateErrorException("Invalid date format! Fatal error.");
+		}
+	}
 
 }

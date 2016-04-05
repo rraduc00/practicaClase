@@ -7,8 +7,8 @@ package es.unileon.prg.practicaDate;
  **/
 
 public class DataValidator{
-	int day, month, year;
 	/*
+	int day, month, year;
 	public DataValidator(int day, int month, int year){
 		this.day = day;
 		this.month = month;
@@ -20,4 +20,15 @@ public class DataValidator{
 		return (day > 0 && day < 32 && month > 0 && month < 13 && year > 0 && year < 2016);
 	}
 
+	public boolean checkDayFormat(int day){
+		return (day > 0 && day < 32);
+	}
+
+	public boolean checkMonthFormat(int month){
+		return (month > 0 && month < 13);
+	}
+
+	public boolean checkYearFormat(int year){
+		return (year > 0 && year < 2016);
+	}
 }
