@@ -22,6 +22,8 @@ public class DataClassTesting{
 	//Funcionan perfectamente. Sacan todos los errores.	
 	*/
 
+	//Date myDate = new Date(31,5,2015);
+
 	/*
 	//Voy a crear dos fechas distintas para comprobar los métodos. Según la salida que impriman
 	//sabré si funcionan bien o no.
@@ -53,6 +55,6 @@ public class DataClassTesting{
 	//Funcionan perfectamente
 	*/
 
-	
+
     }
 }

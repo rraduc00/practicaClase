@@ -36,8 +36,12 @@ public class DataValidator{
 		if(year > 2020) {
 				errorMessage.append("You are not allowed to introduce very distant years. ");
 		}
+		if(!checkIfDayIsRight(day, month)){
+				errorMessage.append("The inserted day is not correct according to the inserted month. ");
+		}
 		if(errorMessage.length() != 0){
 			throw new DateErrorException(errorMessage.toString());
+
 		}
 	}
 
@@ -78,5 +82,26 @@ public class DataValidator{
 		if(errorMessage.length() != 0){
 			throw new DateErrorException(errorMessage.toString());
 		}
+	}
+
+	public boolean checkIfDayIsRight(int day, int month){
+		boolean isRight = true;
+		switch(month){
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				if(day < 1 || day > 31)
+					isRight = false;
+			break;
+
+			case 2:
+				if(day < 1 || day > 28)
+					isRight = false;
+			break;
+
+			case 4: case 6: case 9: case 11:
+				if(day < 1 || day > 30)
+					isRight = false;
+			break;
+		}
+		return isRight;
 	}
 }

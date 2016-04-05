@@ -24,7 +24,7 @@ public class Date{
 		this.year = obj.getYear();
 	}
 
-	public Date(int day, int month, int year) throws DateErrorException{
+	public Date(int day, int month, int year) {
 		try{
 			parser.checkDataFormat(day, month, year);
 			this.day = day;
@@ -145,8 +145,6 @@ public class Date{
 		}
 		return monthName;
 	}
-
-	//////////// A method that checks if the day of the month is right  ??????
 
 	public String getMonthSeason(){
 		String monthSeason ="";
