@@ -20,9 +20,13 @@ public class DataClassTesting{
 	myDate.setMonth(0);
 	myDate.setDay(0);
 	//Funcionan perfectamente. Sacan todos los errores.	
-	*/
+	/*
 
-	//Date myDate = new Date(31,5,2015);
+	/*
+	//Compruebo que salta el error del día incorrecto en función del mes.
+	Date myDate2 = new Date(31,5,2015); 
+	//Funciona perfectamente.
+	*/
 
 	/*
 	//Voy a crear dos fechas distintas para comprobar los métodos. Según la salida que impriman

@@ -18,26 +18,20 @@ public class DataValidator{
 
 	public void checkDataFormat(int day, int month, int year) throws DateErrorException{
 		StringBuffer errorMessage = new StringBuffer();
-		if(day < 1) {
-				errorMessage.append("You are not allowed to introduce negative days or zero. ");
+		try{
+			checkDayFormat(day, month);
+		}catch (DateErrorException errorMsg) {
+			errorMessage.append(errorMsg);
 		}
-		if(day > 31) {
-				errorMessage.append("You are not allowed to introduce bigger day than 31. ");
+		try{
+			checkMonthFormat(month);
+		}catch (DateErrorException errorMsg) {
+			errorMessage.append(errorMsg);
 		}
-		if(month < 1) {
-				errorMessage.append("You are not allowed to introduce months lower than 1. ");
-		}
-		if(month > 12) {
-				errorMessage.append("You are not allowed to introduce months bigger than 12. ");
-		}
-		if(year < 0) {
-				errorMessage.append("You are not allowed to introduce negative years. ");
-		}
-		if(year > 2020) {
-				errorMessage.append("You are not allowed to introduce very distant years. ");
-		}
-		if(!checkIfDayIsRight(day, month)){
-				errorMessage.append("The inserted day is not correct according to the inserted month. ");
+		try{
+			checkYearFormat(year);
+		}catch (DateErrorException errorMsg) {
+			errorMessage.append(errorMsg);
 		}
 		if(errorMessage.length() != 0){
 			throw new DateErrorException(errorMessage.toString());
@@ -45,13 +39,16 @@ public class DataValidator{
 		}
 	}
 
-	public void checkDayFormat(int day) throws DateErrorException{
+	public void checkDayFormat(int day, int month) throws DateErrorException{
 		StringBuffer errorMessage = new StringBuffer();
 		if(day < 1) {
 				errorMessage.append("You are not allowed to introduce negative days or zero. ");
 		}
 		if(day > 31) {
 				errorMessage.append("You are not allowed to introduce bigger day than 31. ");
+		}
+		if(!checkIfDayIsRight(day, month)){
+				errorMessage.append("The inserted day is not correct according to the inserted month. ");
 		}
 		if(errorMessage.length() != 0){
 			throw new DateErrorException(errorMessage.toString());

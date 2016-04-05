@@ -47,16 +47,16 @@ public class Date{
 		return this.year;
 	}
 
-	public void setDay(int day) throws DateErrorException{
+	public void setDay(int day){
 		try{
-			parser.checkDayFormat(day);
+			parser.checkDayFormat(day, this.month);
 			this.day = day;
 		} catch (DateErrorException errorMsg) {
 			System.err.println(errorMsg);
 		}
 	}
 
-	public void setMonth(int month) throws DateErrorException{
+	public void setMonth(int month){
 		try{
 			parser.checkMonthFormat(month);
 			this.month = month;
@@ -65,7 +65,7 @@ public class Date{
 		}
 	}
 
-	public void setYear(int year) throws DateErrorException{
+	public void setYear(int year){
 		try{
 			parser.checkYearFormat(year);
 			this.year = year;
@@ -74,7 +74,7 @@ public class Date{
 		}
 	}
 
-	public void setDate(int day, int month, int year) throws DateErrorException{
+	public void setDate(int day, int month, int year){
 		try{
 			parser.checkDataFormat(day, month, year);
 			this.day = day;
@@ -165,15 +165,11 @@ public class Date{
 		return monthSeason;
 	}
 
-	public String getMonthsLeft() throws DateErrorException{
+	public String getMonthsLeft(){
 		Date aux = new Date(this);
 		StringBuffer monthsLeft = new StringBuffer();
 		for(int i = month + 1 ; i < 13; i++ ){
-			try{
 				aux.setMonth(i);
-			} catch (DateErrorException errorMsg) {
-				System.err.println(errorMsg);
-			}
 				monthsLeft.append(aux.getMonthName() + " ");
 		}
 		return monthsLeft.toString();
