@@ -72,4 +72,20 @@ public class Date{
 		}
 	}
 
+	public boolean isSameYear(Date anotherDate){
+		return this.year == anotherDate.getYear();
+	}
+
+	public boolean isSameMonth(Date anotherDate){
+		return this.month == anotherDate.getMonth();
+	}
+
+	public boolean isSameDay(Date anotherDate){
+		return this.day == anotherDate.getDay();
+	}
+
+	public boolean isSame(Date anotherDate){
+		return(this.day == anotherDate.getDay() && this.month == anotherDate.getMonth() 
+			&& this.year == anotherDate.getYear());
+	}
 }
