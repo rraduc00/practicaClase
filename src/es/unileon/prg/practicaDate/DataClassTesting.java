@@ -59,6 +59,12 @@ public class DataClassTesting{
 	//Funcionan perfectamente
 	*/
 
-
+	/*
+	//Voy a comprobar el get month left y el get month season
+	Date myDate = new Date(5,5,2015);
+	System.out.println(myDate.getMonthsLeft());
+	System.out.println(myDate.getMonthSeason());
+	//Funciona correctamente
+	*/
     }
 }
