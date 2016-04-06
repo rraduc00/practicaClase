@@ -124,5 +124,14 @@ public class DataClassTesting{
 	System.out.println(myDate2);
 	//Funciona perfectamente
 	*/
+
+	/*
+	//Voy a probar el método tomorrow()
+	Date myDate79 = new Date(28,02,2015);
+	System.out.println(myDate79.tomorrow()); // esto debería imprimirme el 1 de marzo de 2015
+	Date myDate80 = new Date(31,12,2015);
+	System.out.println(myDate80.tomorrow()); // esto debería imprimirme el 1 de enero de 2016
+	//Funciona perfectamente
+	*/
     }
 }

@@ -268,10 +268,6 @@ public class Date{
    		return (int)(java.lang.Math.random() * range) + min;
 	}
 
-	public String toString(){
-		return "The date is: " + day + " of " + month + " of year " + year;
-	}
-
 	public String showDayOfTheWeek(){
 		/*N = d + 2m + [3(m+1)/5] + y + [y/4] - [y/100] + [y/400] + 2
 		where d is the number or the day of the month, m is the number of the 
@@ -339,5 +335,34 @@ public class Date{
 		}
 
 		return dayOfGivenDate.toString();
+	}
+
+		public Date tomorrow(){
+			Date tomorrowDate = null;
+			int tomorrowDay = 0;
+			int tomorrowMonth = 0;
+			int tomorrowYear = 0;
+			int monthDays  = getMonthTotalDays();
+			if(this.day == monthDays){
+				tomorrowDay = 1;
+				if(this.month == 12){
+					tomorrowMonth =1;
+					tomorrowYear = this.year + 1;
+				} else {
+					tomorrowMonth = this.month + 1;
+					tomorrowYear = this.year;
+				}
+			} else {
+				tomorrowDay = this.day+1;
+				tomorrowMonth = this.month;
+				tomorrowYear = this.year;
+			}
+			tomorrowDate = new Date(tomorrowDay, tomorrowMonth, tomorrowYear);
+			return tomorrowDate;
+		}
+
+
+		public String toString(){
+		return "The date is: " + day + " of " + month + " (" + getMonthName() + ") of year " + year;
 	}
 }
