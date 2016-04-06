@@ -102,9 +102,27 @@ public class DataClassTesting{
 	//Funciona perfectamente
 	*/
 
+	/*
+	//Voy a probar el método showDayOfTheWeek() con algunas fechas aleatorias.
+	Date myDate20 = new Date(10,1,2016); 
+	Date myDate21 = new Date(10,1,1996);
+	Date myDate22 = new Date(10,12,2016);
+	Date myDate23 = new Date(5,5,2005);
+	Date myDate24 = new Date(28,2,2003);
+
+	System.out.println(myDate20.showDayOfTheWeek()); // Esto debería ser Sunday
+	System.out.println(myDate21.showDayOfTheWeek()); // Esto debería ser wednesday
+	System.out.println(myDate22.showDayOfTheWeek()); // Esto debería ser Saturday
+	System.out.println(myDate23.showDayOfTheWeek()); // Esto debería ser Thursday
+	System.out.println(myDate24.showDayOfTheWeek()); // Esto debería ser Friday
+	//Funciona perfectamente
+	*/
+
+	/*
 	//Voy a probar que el método toString funciona y es invocado por defecto al imprimir el objeto
 	Date myDate2 = new Date(10,1,2016);
-	System.out.println(myDate);
+	System.out.println(myDate2);
 	//Funciona perfectamente
+	*/
     }
 }

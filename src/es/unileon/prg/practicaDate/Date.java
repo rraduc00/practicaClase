@@ -271,4 +271,73 @@ public class Date{
 	public String toString(){
 		return "The date is: " + day + " of " + month + " of year " + year;
 	}
+
+	public String showDayOfTheWeek(){
+		/*N = d + 2m + [3(m+1)/5] + y + [y/4] - [y/100] + [y/400] + 2
+		where d is the number or the day of the month, m is the number of the 
+		month, and y is the year. The brackets around the divisions mean to 
+		drop the remainder and just use the integer part that you get.
+
+		Also, a VERY IMPORTANT RULE is the number to use for the months for 
+		January and February. The numbers of these months are 13 and 14 of the 
+		PREVIOUS YEAR. This means that to find the day of the week of New 
+		Year's Day this year, 1/1/98, you must use the date 13/1/97. (It 
+		sounds complicated, but I will do a couple of examples for you.)
+
+		After you find the number N, divide it by 7, and the REMAINDER of that 
+		division tells you the day of the week; 1 = Sunday, 2 = Monday, 3 = 
+		Tuesday, etc; BUT, if the remainder is 0, then the day is Saturday, 
+		that is: 0 = Saturday*/
+
+		StringBuffer dayOfGivenDate = new StringBuffer();
+		int d = this.day;
+		int m = this.month;
+		int y = this.year;
+
+		if(m == 1){
+			y -= 1;
+			m = 13;
+		} else if(m == 2){
+			y -= 1;
+			m = 14;
+		}
+		/*
+		0 - Sabado
+		1 - Domingo
+		2 - Lunes
+		3 - Martes
+		4 - Miercoles
+		5 - Jueves
+		6 - Viernes
+		*/
+
+		int dayOfDate = (d + 2*m + 3*(m+1)/5 + y + y/4 - y/100 + y/400 + 2)%7;
+
+		switch(dayOfDate){
+			case 2:
+				dayOfGivenDate.append("Monday");
+			break;
+			case 3:
+				dayOfGivenDate.append("Tuesday");
+			break;
+			case 4:
+				dayOfGivenDate.append("Wednesday");
+			break;
+			case 5:
+				dayOfGivenDate.append("Thursday");
+			break;
+			case 6:
+				dayOfGivenDate.append("Friday");
+			break;
+			case 0:
+				dayOfGivenDate.append("Saturday");
+			break;
+			case 1:
+				dayOfGivenDate.append("Sunday");
+			break;
+
+		}
+
+		return dayOfGivenDate.toString();
+	}
 }
